@@ -43,7 +43,7 @@
 <section>
 <title>Módulos necesarios</title>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[# General modules
+<programlisting linenumbering="numbered" language="python"><![CDATA[# General modules
 from flask import Flask
 from flask import render_template
 from flask import Response
@@ -69,7 +69,7 @@ from flask_admin.contrib.sqla import ModelView]]></programlisting>
 <section>
 <title>Configuración de la aplicación</title>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[app = Flask(__name__)
+<programlisting linenumbering="numbered" language="python"><![CDATA[app = Flask(__name__)
 
 # Se puede configurar la llave asi
 app.config['SECRET_KEY'] = '...'
@@ -92,7 +92,7 @@ if __name__ == '__main__':
 <section>
 <title>Controladores</title>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[@app.route('/controller1')
+<programlisting linenumbering="numbered" language="html"><![CDATA[@app.route('/controller1')
 def controller1():
     return render_template("controller1/index.html", records=session.query(Table1)[:15])
 
@@ -117,7 +117,7 @@ def controller2(name=name):
 <section>
 <title>layout.html</title>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[<!DOCTYPE html>
+<programlisting linenumbering="numbered" language="html"><![CDATA[<!DOCTYPE html>
 <head>
 <title>Server</title>
 </head>
@@ -133,7 +133,7 @@ def controller2(name=name):
 <section>
 <title>index.html</title>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[{% extends 'layout.html' %}
+<programlisting linenumbering="numbered" language="python"><![CDATA[{% extends 'layout.html' %}
 {% block body %}
 ...
 {% end block %}]]></programlisting>
@@ -145,7 +145,7 @@ def controller2(name=name):
 
 <para>Módulos necesarios:</para>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[from sqlachemy import create_engine
+<programlisting linenumbering="numbered" language="python"><![CDATA[from sqlachemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('...')
@@ -154,7 +154,7 @@ session = Session()]]></programlisting>
 
 <para>Operaciones comunes:</para>
 
-<programlisting linenumbering="numbered" language="perl"><![CDATA[# Busqueda descendente
+<programlisting linenumbering="numbered" language="python"><![CDATA[# Busqueda descendente
 session.query(Table1).order_by(-Table1.id)
 
 # Los ultimos 15 registros
