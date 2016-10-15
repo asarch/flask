@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
 <programlisting linenumbering="numbered" language="perl"><![CDATA[@app.route('/controller1')
 def controller1():
-    return render_template("controller1/index.html', records=session.query(Table1)[:15])
+    return render_template("controller1/index.html", records=session.query(Table1)[:15])
 
 @app.routes('/controller1/add', methods=['GET', 'POST'])
 def controller1_add():
