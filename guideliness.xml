@@ -25,7 +25,7 @@
 <section>
 <title>Estructura de la aplicación</title>
 
-<screen><[CDATA[application/
+<screen><![CDATA[application/
     app.py
     model.py
     templates/
@@ -33,7 +33,7 @@
 
 <para>Tambien puedes usar este esquema:</para>
 
-<screen><[CDATA[application/
+<screen><![CDATA[application/
     app.py
     models/
     templates/
