@@ -81,7 +81,7 @@ admin = Admin(app, name="AppName", template_mode="bootstrap3")
 
 admin.add_view(ModelView(Table1, session))
 
-@app.errorhandler(Exception):
+@app.errorhandler(Exception)
 def exception_handler(error):
     return repr(error)
     
@@ -136,7 +136,7 @@ def controller2(name=name):
 <programlisting linenumbering="numbered" language="python"><![CDATA[{% extends 'layout.html' %}
 {% block body %}
 ...
-{% end block %}]]></programlisting>
+{% endblock %}]]></programlisting>
 </section>
 </section>
 
