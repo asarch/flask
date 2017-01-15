@@ -118,7 +118,9 @@ def controller2(name=name):
 <title>layout.html</title>
 
 <programlisting linenumbering="numbered" language="html"><![CDATA[<!DOCTYPE html>
+<html>
 <head>
+<meta charset="UTF-8"> 
 <title>Server</title>
 </head>
 <body>
