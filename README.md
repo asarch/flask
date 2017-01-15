@@ -1,2 +1,2 @@
 # flask
-Template for Flask-based applications.
+Template for applications
