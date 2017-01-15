@@ -147,7 +147,7 @@ def controller2(name=name):
 
 <para>Módulos necesarios:</para>
 
-<programlisting linenumbering="numbered" language="python"><![CDATA[from sqlachemy import create_engine
+<programlisting linenumbering="numbered" language="python"><![CDATA[from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('...')
