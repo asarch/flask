@@ -200,4 +200,33 @@ Base.metadata.create_all(engine)
 # Numero de registros
 session.query(Table1).count()]]></programlisting>
 </section>
+	
+<section>
+	<title>Changing the response type</title>
+	
+	<para>From:</para>
+	
+	<screen>https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class</screen>
+	
+	<para>Per route</para>
+	
+	<programlisting language="python" linenumbered="numering"><![CDATA[@app.route('/')
+def index():
+    ...
+    return render_template("data.json"), 201, {"Content-Type", "application/json"}]]></programlisting>
+	
+	<para>Pmermanently in the application</para>
+	
+	<programlisting language="python" linenumbering="numbered"><![CDATA[class MyResponse(Response):
+    default_mime_type = "application/xhml"
+
+class MyFlask(Flask):
+    response_class = MyResponse
+
+app = MyFlask(__name__)
+
+@app.route('/data')
+def get_data():
+     return "<?xml version="1.0" enconding="utf-8"?>..."]]></programlisting>
+	</section>
 </article>
