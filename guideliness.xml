@@ -202,23 +202,23 @@ session.query(Table1).count()]]></programlisting>
 </section>
 	
 <section>
-	<title>Changing the response type</title>
+<title>Changing the response type</title>
 	
-	<para>From:</para>
+<para>From:</para>
 	
-	<screen>https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class</screen>
+<screen>https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class</screen>
 	
-	<para>Per route</para>
+<para>Per route</para>
 	
-	<programlisting language="python" linenumbered="numering"><![CDATA[@app.route('/')
+<programlisting language="python" linenumbered="numering"><![CDATA[@app.route('/')
 def index():
     ...
     return render_template("data.json"), 201, {"Content-Type", "application/json"}]]></programlisting>
+
+<para>Pmermanently in the application</para>
 	
-	<para>Pmermanently in the application</para>
-	
-	<programlisting language="python" linenumbering="numbered"><![CDATA[class MyResponse(Response):
-    default_mime_type = "application/xhml"
+<programlisting language="python" linenumbering="numbered"><![CDATA[class MyResponse(Response):
+    default_mimetype = "application/xhml+xml"
 
 class MyFlask(Flask):
     response_class = MyResponse
@@ -227,6 +227,18 @@ app = MyFlask(__name__)
 
 @app.route('/data')
 def get_data():
-     return "<?xml version="1.0" enconding="utf-8"?>..."]]></programlisting>
+     return render_template("index.xhtml")]]></programlisting>
+
+<para>Template:</para>
+<programlisting language="xhtml" linenumbering="numbered"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>XHTML Server with Flask!</title>
+<body>
+<h1>Hello, world!</h1>
+</body>
+</html>]]></programlisting>
+	
 	</section>
 </article>
