@@ -86,7 +86,7 @@ def exception_handler(error):
     return repr(error)
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8784, debug=True)]]></programlisting>
+	app.run(host='0.0.0.0', port=8784, debug=True)]]></programlisting>
 </section>
 
 <section>
@@ -137,7 +137,28 @@ def controller2(name=name):
 
 <programlisting linenumbering="numbered" language="python"><![CDATA[{% extends 'layout.html' %}
 {% block body %}
-...
+<h1>Compradores</h1>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>Nombre</th>
+<th>Apellido paterno</th>
+<th>Apellido materno</th>
+</tr>
+</thead>
+<tbody>
+{% for comprador in compradores %}
+<tr>
+<td>{{ comprador.id }}</td>
+<td>{{ comprador.nombre }}</td>
+<td>{{ comprador.apellido_paterno }}</td>
+<td>{{ comprador.apellido_materno }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
 {% endblock %}]]></programlisting>
 </section>
 </section>
@@ -212,22 +233,22 @@ session.query(Table1).count()]]></programlisting>
 	
 <programlisting language="python" linenumbered="numering"><![CDATA[@app.route('/')
 def index():
-    ...
-    return render_template("data.json"), 201, {"Content-Type", "application/json"}]]></programlisting>
+	...
+	return render_template("data.json"), 201, {"Content-Type", "application/json"}]]></programlisting>
 
 <para>Pmermanently in the application</para>
 	
 <programlisting language="python" linenumbering="numbered"><![CDATA[class MyResponse(Response):
-    default_mimetype = "application/xhml+xml"
+	default_mimetype = "application/xhml+xml"
 
 class MyFlask(Flask):
-    response_class = MyResponse
+	response_class = MyResponse
 
 app = MyFlask(__name__)
 
 @app.route('/data')
 def get_data():
-     return render_template("index.xhtml")]]></programlisting>
+	return render_template("index.xhtml")]]></programlisting>
 
 <para>Template:</para>
 <programlisting language="xhtml" linenumbering="numbered"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -239,6 +260,5 @@ def get_data():
 <h1>Hello, world!</h1>
 </body>
 </html>]]></programlisting>
-	
-	</section>
+</section>
 </article>
