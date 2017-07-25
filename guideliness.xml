@@ -58,10 +58,10 @@ from flask import abort
 from flask import escape
 from flask import request
 
-# Admin module
+# Admin module (you need to install the Flask-Admin module)
 from flask_admin import Admin
 
-# SQLAlchemy integration modules
+# SQLAlchemy integration modules (you need to install the Flask-SQLAlchemy module)
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin.contrib.sqla import ModelView]]></programlisting>
 </section>
@@ -92,11 +92,16 @@ if __name__ == '__main__':
 <section>
 <title>Controladores</title>
 
-<programlisting linenumbering="numbered" language="html"><![CDATA[@app.route('/controller1')
+<programlisting linenumbering="numbered" language="html"><![CDATA[@app.route('/')
+def index():
+    # 'index.html' is located at 'templates/index.html'
+    return render_template("index.html", students=session.query(Student))
+
+@app.route('/controller1')
 def controller1():
     return render_template("controller1/index.html", records=session.query(Table1)[:15])
 
-@app.routes('/controller1/add', methods=['GET', 'POST'])
+@app.route('/controller1/add', methods=['GET', 'POST'])
 def controller1_add():
     if request.method == 'POST':
         return "<h1>The record %s has been saved</h1>" % request.form['nombre']
