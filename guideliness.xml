@@ -79,6 +79,7 @@ app.secret_key = '...'
 
 admin = Admin(app, name="AppName", template_mode="bootstrap3")
 
+# Para acceder: http://0.0.0.0:8784/admin/
 admin.add_view(ModelView(Table1, session))
 
 @app.errorhandler(Exception)
